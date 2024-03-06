@@ -8,7 +8,7 @@ config = Config()
 config.memoize_articles = False
 
 
-def summa(url):
+def summarize_article(url):
     try:
         article = Article(url, config=config)
         article.download()
@@ -23,10 +23,8 @@ def summa(url):
 
         finalSummary = ''
         print(f"Title: {title}")
-        print("Summary:")
         for sentence in summary:
             finalSummary = finalSummary+str(sentence)
-            print(sentence)
 
 
         summaryObject = {'title' : title, 'summary' : finalSummary}
